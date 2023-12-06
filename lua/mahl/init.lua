@@ -1,19 +1,15 @@
-require("theprimeagen.set")
-require("theprimeagen.remap")
-
--- DO NOT INCLUDE THIS
-vim.opt.rtp:append("~/personal/streamer-tools")
--- DO NOT INCLUDE THIS
+require("mahl.set")
+require("mahl.remap")
 
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+local mahlgroup = augroup('mahl', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
+-- function R(name)
+--     require("plenary.reload").reload_module(name)
+-- end
 
 autocmd('TextYankPost', {
     group = yank_group,
@@ -27,7 +23,7 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
+    group = mahlgroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })

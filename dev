@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/sr/bin/env bash
 
 rm -rf ~/.config/nvim
 ln -s $(pwd) ~/.config/nvim

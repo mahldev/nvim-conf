@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
   }
 
   use 'navarasu/onedark.nvim'
+  use 'shaunsingh/nord.nvim'
 
    use {
  			'nvim-treesitter/nvim-treesitter',
@@ -51,4 +52,18 @@ return require('packer').startup(function(use)
        "windwp/nvim-autopairs",
        config = function() require("nvim-autopairs").setup {} end
    }
+--   use {
+--       'nvim-tree/nvim-tree.lua',
+--       requires = {
+--           'nvim-tree/nvim-web-devicons', -- optional
+--       },
+--   }
+   use('nvim-tree/nvim-web-devicons')
+   use {
+       'nvim-lualine/lualine.nvim',
+       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+   }
+   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+       require("toggleterm").setup()
+   end}
 end)
